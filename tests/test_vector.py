@@ -81,10 +81,16 @@ class TestVectorClass(unittest.TestCase):
   def test_from_points(self):
     p1, p2 = (1, 2, 6), (2, 0, 2)
     self.assertEqual(Vector.from_points(p1, p2), Vector([1, -2, -4]))
+    with self.assertRaises(ValueError):
+      Vector.from_points(p1, p1)
+    with self.assertRaises(ValueError):
+      Vector.from_points(p1, (2, 0))
 
   def test_parallel(self):
     self.assertTrue(self.vector.parallel(Vector([2, 4, 6])))
     self.assertFalse(self.vector.parallel(Vector([2, 4, 5])))
+    with self.assertRaises(ValueError):
+      self.vector.parallel(Vector([2, 4]))
 
 if __name__ == '__main__':
   unittest.main()
