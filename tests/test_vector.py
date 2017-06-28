@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import unittest
 
-from structures.vector import Vector
+from vector import Vector
 
 class TestVectorClass(unittest.TestCase):
   vector = Vector([1, 2, 3])
