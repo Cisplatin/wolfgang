@@ -2,6 +2,9 @@
 from math import sqrt
 
 class Vector:
+  # The space that cross-products can be taken in (R^3)
+  CROSS_PRODUCT_SPACE = 3
+
   # @param vector [List<Integer>] The value to intialize the vector to.
   def __init__(self, vector):
     self.vector = vector
@@ -64,6 +67,14 @@ class Vector:
   def __ne__(self, other):
     return not self.__eq__(other)
 
+  # @param index [Integer] The index of the vector to retrieve.
+  # @return [Element] The element at the given index.
+  # @raise [IndexError] If the index is out-of-bounds.
+  def __getitem__(self, index):
+    if index < 0 or index >= len(self):
+      raise IndexError('Index out-of-bounds.')
+    return self.vector[index]
+
   # @param dimension [Integer] The dimension of the vector to return.
   # @param value [Element] The value to set each element to.
   # @return [Vector] The vector with all values as the given value.
@@ -97,5 +108,16 @@ class Vector:
   # @raise [ValueError] If the vectors are not of equal size.
   def dot(self, other):
     if len(self) != len(other):
-      raise ValueError('Cannot dot-product two vectors of different dimension.')
+      raise ValueError('Cannot dot-product vectors of different dimension.')
     return sum([x * y for x, y in zip(self.vector, other.vector)])
+
+  # @param other [Vector] The other vector to cross-product with.
+  # @return [Vector] The cross-product of the two vectors.
+  # @raise [ValueError] If the vectors are not in R3.
+  def cross(self, other):
+    if len(self) != len(other):
+      raise ValueError('Cannot cross-product vectors of different dimensions.')
+    if len(self) != Vector.CROSS_PRODUCT_SPACE:
+      raise ValueError('Can only cross-product vectors in R^3.')
+    # TODO Finish this.
+    pass

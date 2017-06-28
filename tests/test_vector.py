@@ -19,6 +19,12 @@ class TestVectorClass(unittest.TestCase):
   def test_length(self):
     self.assertEqual(len(self.vector), 3)
 
+  def test_getitem(self):
+    self.assertEqual(self.vector[0], 1)
+    self.assertEqual(self.vector[2], 3)
+    with self.assertRaises(IndexError):
+      self.vector[3]
+
   def test_add(self):
     vector_sum = self.vector + Vector([3, 2, 1])
     self.assertEqual(vector_sum, Vector([4, 4, 4]))
