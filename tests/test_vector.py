@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-
 import unittest
 
 from structures.vector import Vector
@@ -50,6 +49,9 @@ class TestVectorClass(unittest.TestCase):
     self.assertEqual(Vector.unit_vector(2), Vector([1, 1]))
     with self.assertRaises(ValueError):
       Vector.unit_vector(0)
+
+  def test_magnitude(self):
+    self.assertEqual(round(self.vector.magnitude(), 4), 3.7417)
 
 if __name__ == '__main__':
   unittest.main()

@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from math import sqrt
 
 class Vector:
   # @param vector [List<Integer>] The value to intialize the vector to.
@@ -86,3 +87,7 @@ class Vector:
   @staticmethod
   def unit_vector(dimension):
     return Vector.__standard_vector(dimension, 1)
+
+  # @return [Element] The magnitude of the vector.
+  def magnitude(self):
+    return sqrt(sum(map(lambda x: x * x, self.vector)))
