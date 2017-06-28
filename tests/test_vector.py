@@ -46,5 +46,10 @@ class TestVectorClass(unittest.TestCase):
     with self.assertRaises(ValueError):
       Vector.zero_vector(0)
 
+  def test_unit_vector(self):
+    self.assertEqual(Vector.unit_vector(2), Vector([1, 1]))
+    with self.assertRaises(ValueError):
+      Vector.unit_vector(0)
+
 if __name__ == '__main__':
   unittest.main()

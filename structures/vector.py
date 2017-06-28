@@ -63,11 +63,26 @@ class Vector:
   def __ne__(self, other):
     return not self.__eq__(other)
 
+  # @param dimension [Integer] The dimension of the vector to return.
+  # @param value [Element] The value to set each element to.
+  # @return [Vector] The vector with all values as the given value.
+  # @raise [ValueError] If dimension is a non-positive value.
+  @staticmethod
+  def __standard_vector(dimension, value):
+    if dimension <= 0:
+      raise ValueError('Dimension of vector must be positive.')
+    return Vector([value] * dimension)
+
   # @param dimension [Integer] The dimension of the zero vector to return.
   # @return [Vector] The zero vector with the correct dimensions.
   # @raise [ValueError] If dimension is a non-positive value.
   @staticmethod
   def zero_vector(dimension):
-    if dimension <= 0:
-      raise ValueError('Dimension of zero-vector must be positive.')
-    return Vector([0] * dimension)
+    return Vector.__standard_vector(dimension, 0)
+
+  # @param dimension [Integer] The dimension of the unit vector to return.
+  # @return [Vector] The unit vector with the correct dimensions.
+  # @raise [ValueError] If dimension is a non-positive value.
+  @staticmethod
+  def unit_vector(dimension):
+    return Vector.__standard_vector(dimension, 1)
