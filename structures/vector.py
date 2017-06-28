@@ -13,6 +13,11 @@ class Vector:
   def __repr__(self):
     return '⟨{}⟩'.format(', '.join(map(str, self.vector)))
 
+  # @param func [Element -> Element] The function to operate with.
+  # @return [Vector] The function applied element-wise to the vector.
+  def __map(self, func):
+    return Vector(map(func, self.vector))
+
   # @param other [Vector] The vector to operate on.
   # @param func [Element x Element -> Element] The function to operate with.
   # @return [Vector] The function applied element-wise to the two vectors.
@@ -37,7 +42,7 @@ class Vector:
   # @param other [Element] The scalar to multiply by.
   # @return [Vector] The scalar multiple of the vector.
   def __mul__(self, other):
-    return Vector(map(lambda x: x * other, self.vector))
+    return self.__map(lambda x: x * other)
 
   # @param other [Element] The scalar to multiply by.
   # @return [Vector] The scalar multiple of the vector.
