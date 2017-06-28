@@ -23,6 +23,8 @@ class TestVectorClass(unittest.TestCase):
   def test_add(self):
     vector_sum = self.vector + Vector([3, 2, 1])
     self.assertEqual(vector_sum, Vector([4, 4, 4]))
+    with self.assertRaises(ValueError):
+      vector_sum = self.vector + Vector([3, 2])
 
 if __name__ == '__main__':
   unittest.main()

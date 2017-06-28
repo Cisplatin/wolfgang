@@ -13,13 +13,20 @@ class Vector:
   def __repr__(self):
     return '⟨{}⟩'.format(', '.join(map(str, self.vector)))
 
+  # @param other [Vector] The vector to operate on.
+  # @param func [Element x Element -> Element] The function to operate with.
+  # @return [Vector] The function applied element-wise to the two vectors.
+  # @raise [ValueError] If the vectors are not the same size.
+  def __operate(self, other, func):
+    if len(self) != len(other):
+      raise ValueError('Can only operate on two vectors of equal magnitude.')
+    return Vector([func(x, y) for x, y in zip(self.vector, other.vector)])
+
   # @param other [Vector] The vector to add to.
   # @return [Vector] The sum of the two vectors.
   # @raise [ValueError] If the vectors are not the same size.
   def __add__(self, other):
-    if len(self) != len(other):
-      raise ValueError('Can only add two vectors of equal magnitude.')
-    return Vector([x + y for x, y in zip(self.vector, other.vector)])
+    return self.__operate(other, lambda x, y: x + y)
 
   # @param other [Vector] The vector to compare to.
   # @return [Boolean] True if the two are equal (by vector definition).
