@@ -150,5 +150,13 @@ class Vector:
   # @raise [ValueError] If the vectors are not in the same space.
   def parallel(self, other):
     if len(self) != len(other):
-      raise ValueError('Vectors must be of the same dimension to be parallel.')
+      raise ValueError('Vectors must be same dimension to be parallel.')
     return self.cross(other) == Vector.zero_vector(len(self))
+
+  # @param other [Vector] The other vector to compare against.
+  # @return [Boolean] True if the vectors are orthogonal.
+  # @raise [ValueError] If the vectors are not in the same space.
+  def orthogonal(self, other):
+    if len(self) != len(other):
+      raise ValueError('Vectors must be same dimension to be perpendicular.')
+    return self.dot(other) == 0

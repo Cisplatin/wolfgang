@@ -92,5 +92,11 @@ class TestVectorClass(unittest.TestCase):
     with self.assertRaises(ValueError):
       self.vector.parallel(Vector([2, 4]))
 
+  def test_orthogonal(self):
+    self.assertTrue(Vector([1, -2, 3]).orthogonal(Vector([5, 4, 1])))
+    self.assertFalse(Vector([1, -2, 3]).orthogonal(Vector([5, 4, 2])))
+    with self.assertRaises(ValueError):
+      self.vector.orthogonal(Vector([2, 4]))
+
 if __name__ == '__main__':
   unittest.main()
