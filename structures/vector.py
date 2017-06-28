@@ -127,5 +127,7 @@ class Vector:
       raise ValueError('Cannot cross-product vectors of different dimensions.')
     if len(self) != Vector.CROSS_PRODUCT_SPACE:
       raise ValueError('Can only cross-product vectors in R^3.')
-    # TODO Finish this.
-    pass
+    x = (self[1] * other[2]) - (self[2] * other[1])
+    y = (self[2] * other[0]) - (self[0] * other[2])
+    z = (self[0] * other[1]) - (self[1] * other[0])
+    return Vector([x, y, z])

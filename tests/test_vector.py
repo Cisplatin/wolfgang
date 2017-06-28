@@ -70,5 +70,9 @@ class TestVectorClass(unittest.TestCase):
   def test_dot(self):
     self.assertEqual(self.vector.dot(Vector([1, 2, 1])), 8)
 
+  def test_cross(self):
+    cross = Vector([3, -3, 1]).cross(Vector([4, 9, 2]))
+    self.assertEqual(cross, Vector([-15, -2, 39]))
+
 if __name__ == '__main__':
   unittest.main()
