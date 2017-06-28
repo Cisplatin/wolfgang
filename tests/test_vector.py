@@ -82,5 +82,9 @@ class TestVectorClass(unittest.TestCase):
     p1, p2 = (1, 2, 6), (2, 0, 2)
     self.assertEqual(Vector.from_points(p1, p2), Vector([1, -2, -4]))
 
+  def test_parallel(self):
+    self.assertTrue(self.vector.parallel(Vector([2, 4, 6])))
+    self.assertFalse(self.vector.parallel(Vector([2, 4, 5])))
+
 if __name__ == '__main__':
   unittest.main()

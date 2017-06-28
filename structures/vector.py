@@ -144,3 +144,11 @@ class Vector:
     y = (self[2] * other[0]) - (self[0] * other[2])
     z = (self[0] * other[1]) - (self[1] * other[0])
     return Vector([x, y, z])
+
+  # @param other [Vector] The other vector to compare against.
+  # @return [Boolean] True if the vectors are parallel or overlapping.
+  # @raise [ValueError] If the vectors are not in the same space.
+  def parallel(self, other):
+    if len(self) != len(other):
+      raise ValueError('Vectors must be of the same dimension to be parallel.')
+    return self.cross(other) == Vector.zero_vector(len(self))
