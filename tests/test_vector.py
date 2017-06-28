@@ -25,6 +25,14 @@ class TestVectorClass(unittest.TestCase):
     with self.assertRaises(IndexError):
       self.vector[3]
 
+  def test_setitem(self):
+    self.assertEqual(self.vector[0], 1)
+    self.vector[0] = 2
+    self.assertEqual(self.vector[0], 2)
+    with self.assertRaises(IndexError):
+      self.vector[3] = 2
+    self.vector[0] = 1
+
   def test_add(self):
     vector_sum = self.vector + Vector([3, 2, 1])
     self.assertEqual(vector_sum, Vector([4, 4, 4]))

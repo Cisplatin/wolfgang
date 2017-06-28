@@ -75,6 +75,14 @@ class Vector:
       raise IndexError('Index out-of-bounds.')
     return self.vector[index]
 
+  # @param index [Integer] The index of the vector to set.
+  # @param value [Element] The value to set the index to.
+  # @raise [IndexError] If the index is out-of-bounds.
+  def __setitem__(self, index, value):
+    if index < 0 or index >= len(self):
+      raise IndexError('Index out-of-bounds.')
+    self.vector[index] = value
+
   # @param dimension [Integer] The dimension of the vector to return.
   # @param value [Element] The value to set each element to.
   # @return [Vector] The vector with all values as the given value.
