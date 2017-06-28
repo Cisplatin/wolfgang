@@ -98,5 +98,11 @@ class TestVectorClass(unittest.TestCase):
     with self.assertRaises(ValueError):
       self.vector.orthogonal(Vector([2, 4]))
 
+  def test_angle(self):
+    self.assertEqual(self.vector.angle(self.vector), 0)
+    self.assertEqual(round(Vector([1, 1]).angle(Vector([1, 0])), 4), 0.7854)
+    with self.assertRaises(ValueError):
+      self.vector.angle(Vector([1, 0]))
+
 if __name__ == '__main__':
   unittest.main()

@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from math import sqrt
+from math import acos, sqrt
 
 class Vector:
   # The space that cross-products can be taken in (R^3)
@@ -123,6 +123,14 @@ class Vector:
   # @return [Element] The magnitude of the vector.
   def magnitude(self):
     return sqrt(sum(map(lambda x: x * x, self.vector)))
+
+  # @param other [Vector] The other vector to find the angle with.
+  # @return [Float] The angle between the two vectors in radians.
+  # @raise [ValueError] If the two vectors are not of equal size.
+  def angle(self, other):
+    if len(self) != len(other):
+      raise ValueError('Cannot find angle for vectors of different dimensions.')
+    return acos(self.dot(other) / (self.magnitude() * other.magnitude()))
 
   # @param other [Vector] The other vector to dot-product with.
   # @return [Element] The dot-product of the two vectors.
