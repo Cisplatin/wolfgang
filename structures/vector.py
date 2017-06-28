@@ -28,6 +28,12 @@ class Vector:
   def __add__(self, other):
     return self.__operate(other, lambda x, y: x + y)
 
+  # @param other [Vector] The vector to subtract.
+  # @return [Vector] The difference of the two vectors.
+  # @raise [ValueError] If the vectors are not the same size.
+  def __sub__(self, other):
+    return self.__operate(other, lambda x, y: x - y)
+
   # @param other [Vector] The vector to compare to.
   # @return [Boolean] True if the two are equal (by vector definition).
   def __eq__(self, other):

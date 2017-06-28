@@ -26,5 +26,11 @@ class TestVectorClass(unittest.TestCase):
     with self.assertRaises(ValueError):
       vector_sum = self.vector + Vector([3, 2])
 
+  def test_subtract(self):
+    vector_diff = self.vector - Vector([3, 2, 1])
+    self.assertEqual(vector_diff, Vector([-2, 0, 2]))
+    with self.assertRaises(ValueError):
+      vector_diff = self.vector - Vector([3, 2])
+
 if __name__ == '__main__':
   unittest.main()
