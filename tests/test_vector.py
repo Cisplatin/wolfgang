@@ -32,5 +32,11 @@ class TestVectorClass(unittest.TestCase):
     with self.assertRaises(ValueError):
       vector_diff = self.vector - Vector([3, 2])
 
+  def test_multiply(self):
+    vector_prod = self.vector * 3
+    self.assertEqual(vector_prod, Vector([3, 6, 9]))
+    vector_prod = 3 * self.vector
+    self.assertEqual(vector_prod, Vector([3, 6, 9]))
+
 if __name__ == '__main__':
   unittest.main()

@@ -34,6 +34,16 @@ class Vector:
   def __sub__(self, other):
     return self.__operate(other, lambda x, y: x - y)
 
+  # @param other [Element] The scalar to multiply by.
+  # @return [Vector] The scalar multiple of the vector.
+  def __mul__(self, other):
+    return Vector(map(lambda x: x * other, self.vector))
+
+  # @param other [Element] The scalar to multiply by.
+  # @return [Vector] The scalar multiple of the vector.
+  def __rmul__(self, other):
+    return self.__mul__(other)
+
   # @param other [Vector] The vector to compare to.
   # @return [Boolean] True if the two are equal (by vector definition).
   def __eq__(self, other):
