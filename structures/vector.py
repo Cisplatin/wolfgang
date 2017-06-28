@@ -83,6 +83,19 @@ class Vector:
       raise IndexError('Index out-of-bounds.')
     self.vector[index] = value
 
+  # @param p1 [Tuple<Element>] The first point on the vector.
+  # @param p2 [Tuple<Element>] The second point on the vector.
+  # @return [Vector] A vector that intersects both points.
+  # @raise [ValueError] If the points are of different dimensions.
+  # @raise [ValueError] If the points are equal.
+  @staticmethod
+  def from_points(p1, p2):
+    if len(p1) != len(p2):
+      raise ValueError('Cannot form vector from points of different dimension.')
+    if p1 == p2:
+      raise ValueError('Cannot form vector from one point.')
+    return Vector([y - x for x, y in zip(p1, p2)])
+
   # @param dimension [Integer] The dimension of the vector to return.
   # @param value [Element] The value to set each element to.
   # @return [Vector] The vector with all values as the given value.

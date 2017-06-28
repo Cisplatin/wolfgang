@@ -73,6 +73,14 @@ class TestVectorClass(unittest.TestCase):
   def test_cross(self):
     cross = Vector([3, -3, 1]).cross(Vector([4, 9, 2]))
     self.assertEqual(cross, Vector([-15, -2, 39]))
+    with self.assertRaises(ValueError):
+      Vector([1, 2, 3]).cross(Vector([1, 2, 3, 4]))
+    with self.assertRaises(ValueError):
+      Vector([1, 2, 3, 4]).cross(Vector([1, 2, 3, 4]))
+
+  def test_from_points(self):
+    p1, p2 = (1, 2, 6), (2, 0, 2)
+    self.assertEqual(Vector.from_points(p1, p2), Vector([1, -2, -4]))
 
 if __name__ == '__main__':
   unittest.main()
