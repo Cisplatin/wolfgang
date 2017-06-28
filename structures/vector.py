@@ -5,7 +5,7 @@ class Vector:
   def __init__(self, vector):
     self.vector = vector
 
-  # @return [Integer] The magnitude of the vector.
+  # @return [Integer] The number of elements in the vector.
   def __len__(self):
     return len(self.vector)
 
@@ -53,3 +53,12 @@ class Vector:
   # @return [Boolean] True if the two are inequal (by vector definition).
   def __ne__(self, other):
     return not self.__eq__(other)
+
+  # @param dimension [Integer] The dimension of the zero vector to return.
+  # @return [Vector] The zero vector with the correct dimensions.
+  # @raise [ValueError] If dimension is a non-positive value.
+  @staticmethod
+  def zero_vector(dimension):
+    if dimension <= 0:
+      raise ValueError('Dimension of zero-vector must be positive.')
+    return Vector([0] * dimension)

@@ -17,7 +17,7 @@ class TestVectorClass(unittest.TestCase):
     self.assertEqual(self.vector, Vector([1, 2, 3]))
     self.assertNotEqual(self.vector, Vector([1, 2, 2]))
 
-  def test_magnitude(self):
+  def test_length(self):
     self.assertEqual(len(self.vector), 3)
 
   def test_add(self):
@@ -37,6 +37,11 @@ class TestVectorClass(unittest.TestCase):
     self.assertEqual(vector_prod, Vector([3, 6, 9]))
     vector_prod = 3 * self.vector
     self.assertEqual(vector_prod, Vector([3, 6, 9]))
+
+  def test_zero_vector(self):
+    self.assertEqual(Vector.zero_vector(2), Vector([0, 0]))
+    with self.assertRaises(ValueError):
+      Vector.zero_vector(0)
 
 if __name__ == '__main__':
   unittest.main()
