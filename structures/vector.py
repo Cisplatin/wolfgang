@@ -91,3 +91,11 @@ class Vector:
   # @return [Element] The magnitude of the vector.
   def magnitude(self):
     return sqrt(sum(map(lambda x: x * x, self.vector)))
+
+  # @param other [Vector] The other vector to dot-product with.
+  # @return [Element] The dot-product of the two vectors.
+  # @raise [ValueError] If the vectors are not of equal size.
+  def dot(self, other):
+    if len(self) != len(other):
+      raise ValueError('Cannot dot-product two vectors of different dimension.')
+    return sum([x * y for x, y in zip(self.vector, other.vector)])

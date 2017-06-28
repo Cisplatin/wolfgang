@@ -53,5 +53,8 @@ class TestVectorClass(unittest.TestCase):
   def test_magnitude(self):
     self.assertEqual(round(self.vector.magnitude(), 4), 3.7417)
 
+  def test_dot(self):
+    self.assertEqual(self.vector.dot(Vector([1, 2, 1])), 8)
+
 if __name__ == '__main__':
   unittest.main()
