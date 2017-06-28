@@ -5,18 +5,28 @@ class Vector:
   def __init__(self, vector):
     self.vector = vector
 
+  # @return [Integer] The magnitude of the vector.
+  def __len__(self):
+    return len(self.vector)
+
   # @return [String] A clean representation of the vector.
   def __repr__(self):
     return '⟨{}⟩'.format(', '.join(map(str, self.vector)))
 
-  # @param other [Any] The object to compare to.
+  # @param other [Vector] The vector to add to.
+  # @return [Vector] The sum of the two vectors.
+  # @raise [ValueError] If the vectors are not the same size.
+  def __add__(self, other):
+    if len(self) != len(other):
+      raise ValueError('Can only add two vectors of equal magnitude.')
+    return Vector([x + y for x, y in zip(self.vector, other.vector)])
+
+  # @param other [Vector] The vector to compare to.
   # @return [Boolean] True if the two are equal (by vector definition).
   def __eq__(self, other):
-    if isinstance(other, self.__class__):
-      return self.vector == other.vector
-    return False
+    return self.vector == other.vector
 
-  # @param other [Any] The object to compare to.
+  # @param other [Vector] The vector to compare to.
   # @return [Boolean] True if the two are inequal (by vector definition).
   def __ne__(self, other):
     return not self.__eq__(other)
