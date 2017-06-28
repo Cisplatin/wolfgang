@@ -38,6 +38,9 @@ class TestVectorClass(unittest.TestCase):
     vector_prod = 3 * self.vector
     self.assertEqual(vector_prod, Vector([3, 6, 9]))
 
+  def test_negative(self):
+    self.assertEqual(-self.vector, Vector([-1, -2, -3]))
+
   def test_zero_vector(self):
     self.assertEqual(Vector.zero_vector(2), Vector([0, 0]))
     with self.assertRaises(ValueError):

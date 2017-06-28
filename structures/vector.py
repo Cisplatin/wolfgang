@@ -27,6 +27,10 @@ class Vector:
       raise ValueError('Can only operate on two vectors of equal magnitude.')
     return Vector([func(x, y) for x, y in zip(self.vector, other.vector)])
 
+  # @return [Vector] The vector with all elements negated.
+  def __neg__(self):
+    return self.__map(lambda x: -x)
+
   # @param other [Vector] The vector to add to.
   # @return [Vector] The sum of the two vectors.
   # @raise [ValueError] If the vectors are not the same size.
