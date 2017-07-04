@@ -17,6 +17,8 @@ class TestSpanClass(unittest.TestCase):
     span = Span.real_basis(3)
     basis = [Vector([1, 0, 0]), Vector([0, 1, 0]), Vector([0, 0, 1])]
     self.assertEqual(span.vectors, basis)
+    with self.assertRaises(ValueError):
+      Span.real_basis(0)
 
 if __name__ == '__main__':
   unittest.main()
