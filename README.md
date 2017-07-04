@@ -1,5 +1,8 @@
 # wolfgang
 
+[![GitHub issues](https://img.shields.io/github/issues/Cisplatin/wolfgang.svg)](https://github.com/Cisplatin/wolfgang/issues)
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/Cisplatin/wolfgang/master/LICENSE)
+
 Wolfgang is a small and fast utility for vector manipulation in Python.
 
 ## Installation
