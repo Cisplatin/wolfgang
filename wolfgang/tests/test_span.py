@@ -9,5 +9,9 @@ class TestSpanClass(unittest.TestCase):
     span = Span([Vector.unit_vector(3), Vector([1, 2, 3])])
     self.assertEqual(span.vectors, [Vector.unit_vector(3), Vector([1, 2, 3])])
 
+  def test_init(self):
+    span = Span([Vector.unit_vector(3), Vector([1, 2, 3])])
+    self.assertEqual(len(span), 2)
+
 if __name__ == '__main__':
   unittest.main()
