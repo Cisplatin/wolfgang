@@ -17,8 +17,7 @@ cross_product = vector_1.cross(vector_2)
 print cross_product # => ⟨-1, 2, -1⟩
 ```
 
-For a list of all functions and information on their use and parameters, see
-`vector.py <https://github.com/Cisplatin/wolfgang/blob/master/wolfgang/vector.py>_`
+For a list of all functions and information on their use and parameters, see [Vector](<https://github.com/Cisplatin/wolfgang/blob/master/wolfgang/vector.py>).
 
 ## Development
 
