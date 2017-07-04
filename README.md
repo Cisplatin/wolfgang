@@ -6,13 +6,13 @@ Wolfgang is a small and fast utility for vector manipulation in Python.
 
 You can install wolfgang with:
 
-```
+```bash
 pip install wolfgang
 ```
 
 ## Example
 
-```
+```python
 from wolfgang import Vector
 
 vector_1 = Vector([1, 2, 3])
@@ -31,6 +31,6 @@ For a list of all functions and information on their use and parameters, see [Ve
 
 To run all tests, use:
 
-```
+```bash
 python -m unittest discover
 ```
