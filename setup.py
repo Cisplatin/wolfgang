@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(name='wolfgang',
-      version='0.1',
+      version='0.2',
       description='A Python library for vectors.',
       url='https://github.com/Cisplatin/wolfgang',
       author='Simon Hajjar',
