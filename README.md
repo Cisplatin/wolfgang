@@ -2,6 +2,14 @@
 
 Wolfgang is a small and fast utility for vector manipulation in Python.
 
+## Installation
+
+You can install wolfgang with:
+
+```
+pip install wolfgang
+```
+
 ## Example
 
 ```
