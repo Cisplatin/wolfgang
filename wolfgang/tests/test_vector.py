@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import unittest
 
-from vector import Vector
+from wolfgang.vector import Vector
 
 class TestVectorClass(unittest.TestCase):
   vector = Vector([1, 2, 3])
